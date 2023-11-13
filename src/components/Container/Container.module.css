@@ -1,0 +1,39 @@
+.container {
+  border: 1px solid red;
+  min-width: 100vw;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 10px;
+  padding-right: 10px;
+  overflow-y: auto;
+  font-size: var(--min-font-size);
+  font-weight: var(--min-font-weight);
+  color: var(--headline-page-color);
+
+  @media screen and (min-width: 481px) and (max-width: 767px) {
+    max-width: unset;
+    min-width: unset;
+    width: 480px;
+  }
+
+  @media screen and (min-width: 768px) and (max-width: 1199px) {
+    max-width: unset;
+    min-width: unset;
+    width: 768px;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: var(--middle-font-size);
+    font-weight: var(--middle-font-weight);
+  }
+
+  @media screen and (min-width: 1200px) {
+    max-width: unset;
+    min-width: unset;
+    width: 1200px;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: var(--max-font-size);
+    font-weight: var(--max-font-weight);
+  }
+}

@@ -1,0 +1,74 @@
+button {
+  cursor: pointer;
+  border: 2px solid var(--default-color);
+  background-color: #f0f8ff;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @media screen and (min-width: 768px) {
+  }
+}
+
+button:hover,
+button:focus {
+  background-color: #006400;
+  color: var(--default-color);
+  border: 2px solid #ff0000;
+  outline: none;
+}
+
+.sortCars,
+.filterCars {
+  padding: 2px 2px 2px 2px;
+}
+
+.filterCars,
+.resetFilters {
+  margin-right: var(--default-interval);
+}
+
+.signIn {
+  margin-right: var(--default-interval);
+}
+
+.signUp {
+  margin-right: var(--default-interval);
+  margin-right: 0;
+}
+
+.logOut {
+  margin-right: var(--default-interval);
+}
+
+.questionSign {
+  border: none;
+  display: flex;
+  align-items: flex-end;
+  color: green;
+  background-color: transparent;
+  font-size: var(--middle-font-size);
+  text-decoration: underline;
+  font-weight: 700;
+}
+
+.questionSign:hover,
+.questionSign:focus {
+  border: none;
+  background-color: transparent;
+  color: #800080;
+}
+.goToHome {
+  margin: 0 auto;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.logOutIcon {
+  margin-left: 5px;
+}
+
+.cancel {
+  margin-right: 30px;
+}

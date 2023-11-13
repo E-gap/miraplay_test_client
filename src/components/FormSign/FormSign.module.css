@@ -1,0 +1,67 @@
+.form {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  padding: 20px 20px;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+
+  @media screen and (min-width: 768px) {
+    width: 440px;
+  }
+}
+
+.label {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: var(--default-interval);
+  position: relative;
+
+  @media screen and (min-width: 768px) {
+    font-size: var(--middle-font-size);
+  }
+}
+
+.submit {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.buttonHide {
+  position: absolute;
+  top: 17px;
+  right: 5px;
+
+  @media screen and (min-width: 768px) and (max-width: 1199px) {
+    top: 23px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    top: 24px;
+  }
+}
+
+.buttonHide:hover {
+  cursor: pointer;
+}
+
+.question {
+  font-size: var(--min-font-size);
+  text-align: center;
+  color: var(--headline-page-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @media screen and (min-width: 768px) {
+    font-size: var(--middle-font-size);
+  }
+}
+
+.errorValidation {
+  color: red;
+}

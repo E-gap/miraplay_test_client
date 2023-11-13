@@ -1,0 +1,15 @@
+.loginPage {
+  min-height: 100vh;
+}
+
+.titlePage {
+  text-align: center;
+  font-size: var(--middle-font-size);
+  text-transform: uppercase;
+  margin: 5px auto;
+  text-decoration: underline;
+
+  @media screen and (min-width: 768px) {
+    font-size: var(--max-font-size);
+  }
+}

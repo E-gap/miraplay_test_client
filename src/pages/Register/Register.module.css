@@ -1,0 +1,16 @@
+.registerPage {
+  min-height: 100vh;
+}
+
+.titlePage {
+  text-align: center;
+  color: var(--headline-page-color);
+  text-transform: uppercase;
+  margin: 5px auto;
+  text-decoration: underline;
+  font-size: var(--middle-font-size);
+
+  @media screen and (min-width: 768px) {
+    font-size: var(--max-font-size);
+  }
+}
