@@ -51,7 +51,7 @@ function FormSign({ sign }) {
     ),
   });
 
-  const submitForm = (values, actions) => {
+  const submitForm = (values) => {
     const userDataForRegister = {
       name: values.name,
       email: values.email,

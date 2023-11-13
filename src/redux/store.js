@@ -1,4 +1,4 @@
-import { configureStore } from '@reduxjs/toolkit';
+import { configureStore } from "@reduxjs/toolkit";
 import {
   persistStore,
   FLUSH,
@@ -7,24 +7,24 @@ import {
   PERSIST,
   PURGE,
   REGISTER,
-} from 'redux-persist';
-import { persistReducer } from 'redux-persist';
-import storage from 'redux-persist/lib/storage';
-import { authReducer } from './auth/authSlice';
-import { carsReducer } from './cars/carsSlice';
+} from "redux-persist";
+import { persistReducer } from "redux-persist";
+import storage from "redux-persist/lib/storage";
+import { authReducer } from "./auth/authSlice";
+import { gamesReducer } from "./games/gamesSlice";
 
 const authPersistConfig = {
-  key: 'auth',
+  key: "auth",
   storage,
-  whitelist: ['token'],
+  whitelist: ["token"],
 };
 
 export const store = configureStore({
   reducer: {
     auth: persistReducer(authPersistConfig, authReducer),
-    cars: carsReducer,
+    games: gamesReducer,
   },
-  middleware: getDefaultMiddleware =>
+  middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],

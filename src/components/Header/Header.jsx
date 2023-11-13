@@ -7,7 +7,7 @@ import {
   selectUserFavorites,
 } from "../../redux/selectors";
 import { useState } from "react";
-import { logout } from "../../redux/auth/authOperations";
+// import { logout } from "../../redux/auth/authOperations";
 import Container from "../Container/Container";
 import { MdFavorite } from "react-icons/md";
 import { HiOutlineUserCircle } from "react-icons/hi";
@@ -21,7 +21,7 @@ const Header = () => {
   const userName = useSelector(selectUserName);
   const favorites = useSelector(selectUserFavorites);
   const [sign, setSign] = useState("");
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const location = useLocation();
 
   const handleHeaderButton = (e) => {
@@ -56,7 +56,7 @@ const Header = () => {
           <div className={css.displayFlex}>
             <div className={css.displayFlex}>
               <NavLink className={css.link} to="/">
-                All games
+                MiraPlay
               </NavLink>
             </div>
             {!isLogin ? (
@@ -86,25 +86,8 @@ const Header = () => {
                 <NavLink
                   to="/cars/favorite"
                   className={`${css.linkFavorite} ${css.displayFlex}`}
-                >
-                  <MdFavorite
-                    className={`${css.userFavoriteIcon}  ${css.icon}`}
-                  />
-                  <p
-                    className={
-                      location.pathname.includes("favorite")
-                        ? `${css.numberFavorites} ${css.numberFavoritesYellow}`
-                        : `${css.numberFavorites} ${css.numberFavoritesRed}`
-                    }
-                  >
-                    {favorites.length}
-                  </p>
-                </NavLink>
+                ></NavLink>
 
-                <ImPlus
-                  className={`${css.addCarIcon} ${css.icon}`}
-                  onClick={handleAddCar}
-                />
                 <Button
                   text="Log out"
                   handleButton={handleHeaderButton}

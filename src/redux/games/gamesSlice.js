@@ -1,17 +1,17 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice } from "@reduxjs/toolkit";
 import {
   addCar,
   deleteCar,
-  getAllCars,
-  getFavoriteCars,
-  getUserCars,
+  getAllGames,
+  getFavoriteGames,
+  getUserGames,
   changeCar,
-} from './carsOperations';
+} from "./gamesOperations";
 
-const carsSlice = createSlice({
-  name: 'cars',
+const gamesSlice = createSlice({
+  name: "games",
   initialState: {
-    allCars: [],
+    allGames: [],
     isLoading: false,
     total: 0,
     error: null,
@@ -21,84 +21,85 @@ const carsSlice = createSlice({
       state.sortBy = action.payload;
     },
   },
-  extraReducers: builder =>
+  extraReducers: (builder) =>
     builder
-      .addCase(getAllCars.pending, state => {
+      .addCase(getAllGames.pending, (state) => {
+        console.log("getAll");
         state.isLoading = true;
         state.error = null;
       })
-      .addCase(getAllCars.fulfilled, (state, action) => {
-        state.allCars = action.payload.data;
+      .addCase(getAllGames.fulfilled, (state, action) => {
+        state.allGames = action.payload.data;
         state.isLoading = false;
         state.total = action.payload.total;
       })
-      .addCase(getAllCars.rejected, (state, action) => {
+      .addCase(getAllGames.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
-        state.allCars = [];
+        state.allGames = [];
       })
-      .addCase(getFavoriteCars.pending, state => {
+      .addCase(getFavoriteGames.pending, (state) => {
         state.isLoading = true;
         state.error = null;
       })
-      .addCase(getFavoriteCars.fulfilled, (state, action) => {
-        state.allCars = action.payload.data;
+      .addCase(getFavoriteGames.fulfilled, (state, action) => {
+        state.allGames = action.payload.data;
         state.isLoading = false;
         state.total = action.payload.total;
       })
-      .addCase(getFavoriteCars.rejected, (state, action) => {
+      .addCase(getFavoriteGames.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
-        state.allCars = [];
+        state.allGames = [];
       })
-      .addCase(getUserCars.pending, state => {
+      .addCase(getUserGames.pending, (state) => {
         state.isLoading = true;
         state.error = null;
       })
-      .addCase(getUserCars.fulfilled, (state, action) => {
-        state.allCars = action.payload.data;
+      .addCase(getUserGames.fulfilled, (state, action) => {
+        state.allGames = action.payload.data;
         state.isLoading = false;
         state.total = action.payload.total;
       })
-      .addCase(getUserCars.rejected, (state, action) => {
+      .addCase(getUserGames.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
-        state.allCars = [];
+        state.allGames = [];
       })
-      .addCase(addCar.pending, state => {
+      .addCase(addCar.pending, (state) => {
         state.isLoading = true;
         state.error = null;
       })
-      .addCase(addCar.fulfilled, state => {
+      .addCase(addCar.fulfilled, (state) => {
         state.isLoading = false;
       })
       .addCase(addCar.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
       })
-      .addCase(changeCar.pending, state => {
+      .addCase(changeCar.pending, (state) => {
         state.isLoading = true;
         state.error = null;
       })
       .addCase(changeCar.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.allCars = action.payload.data;
+        state.allGames = action.payload.data;
       })
       .addCase(changeCar.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
       })
-      .addCase(deleteCar.pending, state => {
+      .addCase(deleteCar.pending, (state) => {
         state.error = null;
       })
       .addCase(deleteCar.fulfilled, (state, action) => {
-        state.allCars = action.payload;
+        state.allGames = action.payload;
       })
       .addCase(deleteCar.rejected, (state, action) => {
         state.error = action.payload;
       }),
 });
 
-export const { changeSortBy } = carsSlice.actions;
+export const { changeSortBy } = gamesSlice.actions;
 
-export const carsReducer = carsSlice.reducer;
+export const gamesReducer = gamesSlice.reducer;

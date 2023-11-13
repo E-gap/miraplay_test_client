@@ -15,11 +15,23 @@
   --no-items-color: #008000;
 }
 
+@font-face {
+  font-family: "Neue Machina Light";
+  src: local("Neue Machina"),
+    url(./fonts/font/NeueMachina-Light.ttf) format("opentype");
+}
+
+@font-face {
+  font-family: "Neue Machina Bold";
+  src: local("Neue Machina"),
+    url(./fonts/font/NeueMachina-Bold.ttf) format("opentype");
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+    "Neue Machina", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

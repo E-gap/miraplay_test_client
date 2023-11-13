@@ -1,12 +1,14 @@
-import { createAsyncThunk } from '@reduxjs/toolkit';
-import { instance } from '../auth/authOperations';
-import Notiflix from 'notiflix';
+import { createAsyncThunk } from "@reduxjs/toolkit";
+import { instance } from "../auth/authOperations";
+import Notiflix from "notiflix";
 
-export const getAllCars = createAsyncThunk(
-  'cars/getAllCars',
+export const getAllGames = createAsyncThunk(
+  "games/getAllGames",
   async (search, thunkApi) => {
     try {
-      const { data } = await instance.get(search ? `/cars${search}` : `/cars`);
+      const { data } = await instance.get(
+        search ? `/games${search}` : `/games`
+      );
       return data;
     } catch (error) {
       return thunkApi.rejectWithValue(error.message);
@@ -14,29 +16,29 @@ export const getAllCars = createAsyncThunk(
   }
 );
 
-export const getOneCar = async carId => {
+export const getOneCar = async (carId) => {
   try {
-    const { data } = await instance.get(`/cars/${carId}`);
+    const { data } = await instance.get(`/games/${carId}`);
     return data;
   } catch (error) {
     return error;
   }
 };
 
-export const getFavoriteCars = createAsyncThunk(
-  'cars/getFavoriteCars',
+export const getFavoriteGames = createAsyncThunk(
+  "games/getFavoriteGames",
   async (search, thunkApi) => {
     const { token } = thunkApi.getState().auth;
 
     if (!token)
       return thunkApi.rejectWithValue(
-        'Sign In if you want to get Favorite Cars'
+        "Sign In if you want to get Favorite Games"
       );
     instance.defaults.headers.common.Authorization = `Bearer ${token}`;
 
     try {
       const { data } = await instance.get(
-        search ? `/cars/favorite${search}` : `/cars/favorite`
+        search ? `/games/favorite${search}` : `/games/favorite`
       );
       return data;
     } catch (error) {
@@ -45,17 +47,17 @@ export const getFavoriteCars = createAsyncThunk(
   }
 );
 
-export const getUserCars = createAsyncThunk(
-  'cars/getUserCars',
+export const getUserGames = createAsyncThunk(
+  "games/getUserGames",
   async (search, thunkApi) => {
     const { token } = thunkApi.getState().auth;
 
     if (!token)
-      return thunkApi.rejectWithValue('Sign In if you want to get Your Cars');
+      return thunkApi.rejectWithValue("Sign In if you want to get Your Games");
     instance.defaults.headers.common.Authorization = `Bearer ${token}`;
     try {
       const { data } = await instance.get(
-        search ? `/cars/user${search}` : `/cars/user`
+        search ? `/games/user${search}` : `/games/user`
       );
       return data;
     } catch (error) {
@@ -65,43 +67,43 @@ export const getUserCars = createAsyncThunk(
 );
 
 export const addCar = createAsyncThunk(
-  'cars/addCar',
+  "games/addCar",
   async (dataCar, thunkApi) => {
     try {
-      const { data } = await instance.post('/cars', dataCar);
-      Notiflix.Notify.success('New car is added');
+      const { data } = await instance.post("/games", dataCar);
+      Notiflix.Notify.success("New car is added");
       return data.data;
     } catch (error) {
-      Notiflix.Notify.failure('Car is not added');
+      Notiflix.Notify.failure("Car is not added");
       return thunkApi.rejectWithValue(error.message);
     }
   }
 );
 
 export const changeCar = createAsyncThunk(
-  'cars/changeCar',
+  "games/changeCar",
   async (reqBody, thunkApi) => {
     const { dataCar, carId } = reqBody;
     try {
-      const { data } = await instance.patch(`/cars/${carId}`, dataCar);
-      Notiflix.Notify.success('Car item is changed');
+      const { data } = await instance.patch(`/games/${carId}`, dataCar);
+      Notiflix.Notify.success("Car item is changed");
       return data;
     } catch (error) {
-      Notiflix.Notify.failure('Car is not changed');
+      Notiflix.Notify.failure("Car is not changed");
       return thunkApi.rejectWithValue(error.message);
     }
   }
 );
 
 export const deleteCar = createAsyncThunk(
-  'cars/deleteCar',
+  "games/deleteCar",
   async (carId, thunkApi) => {
     try {
-      const { data } = await instance.delete(`/cars/${carId}`);
-      Notiflix.Notify.success('Car item is removed');
+      const { data } = await instance.delete(`/games/${carId}`);
+      Notiflix.Notify.success("Car item is removed");
       return data.data;
     } catch (error) {
-      Notiflix.Notify.failure('Car is not removed');
+      Notiflix.Notify.failure("Car is not removed");
       return thunkApi.rejectWithValue(error.message);
     }
   }
