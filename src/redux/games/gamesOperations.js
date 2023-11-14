@@ -6,7 +6,7 @@ export const getAllGames = createAsyncThunk(
   async (search, thunkApi) => {
     try {
       const { data } = await instance.get(
-        `/games/?genre=${search.activeGenre}&page=${search.page}`
+        `/games/?genre=${search.activeGenre}&page=${search.page}&sortBy=${search.sortBy}`
       );
 
       return data;

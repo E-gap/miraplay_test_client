@@ -19,7 +19,6 @@
 
 .filterPanel {
   margin-bottom: 20px;
-  padding-left: 20px;
   display: flex;
   flex-wrap: wrap;
   width: 60%;
@@ -52,4 +51,36 @@ li.activeG {
   text-align: center;
   font-size: var(--max-font-size);
   font-weight: var(--middle-font-weight);
+}
+
+.displayFlex {
+  display: flex;
+  justify-content: space-between;
+
+  padding: 0px 20px;
+}
+
+.sort {
+  display: flex;
+  color: white;
+  font-size: var(--middle-font-size);
+  height: auto;
+}
+
+.sortText {
+  margin-right: 20px;
+  color: grey;
+  height: auto;
+}
+
+.sortVariant {
+  width: 80px;
+  color: yellow;
+
+  height: 25px;
+}
+
+.sortVariant:hover {
+  cursor: pointer;
+  color: white;
 }

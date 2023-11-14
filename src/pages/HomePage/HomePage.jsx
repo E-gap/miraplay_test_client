@@ -13,14 +13,15 @@ import Button from "../../components/Button/Button";
 const HomePage = () => {
   const [activeGenre, setActiveGenre] = useState("ALL");
   const [page, setPage] = useState(1);
+  const [sortBy, setSortBy] = useState("first old");
   const dispatch = useDispatch();
   const allGames = useSelector(selectAllGames);
   const totalGames = useSelector(selectTotalGames);
 
   useEffect(() => {
-    const dataQuery = { activeGenre, page };
+    const dataQuery = { activeGenre, page, sortBy };
     dispatch(getAllGames(dataQuery));
-  }, [dispatch, page, activeGenre]);
+  }, [dispatch, page, activeGenre, sortBy]);
 
   const handleClickFilter = (e) => {
     setActiveGenre(e.target.textContent);
@@ -30,25 +31,42 @@ const HomePage = () => {
     setPage(page + 1);
   };
 
+  const changeSortBy = () => {
+    if (sortBy === "first old") {
+      setSortBy("first new");
+    } else {
+      setSortBy("first old");
+    }
+  };
+
   const showButtonMore = allGames.length !== totalGames;
 
   return (
     <section className={css.homePage}>
       <Container>
         <h1 className={css.headlineHome}>GAMES</h1>
-        <ul className={css.filterPanel}>
-          {genres.map((item, index) => {
-            return (
-              <li
-                key={index}
-                onClick={handleClickFilter}
-                className={item === activeGenre ? css.activeG : undefined}
-              >
-                {item}
-              </li>
-            );
-          })}
-        </ul>
+        <div className={css.displayFlex}>
+          <ul className={css.filterPanel}>
+            {genres.map((item, index) => {
+              return (
+                <li
+                  key={index}
+                  onClick={handleClickFilter}
+                  className={item === activeGenre ? css.activeG : undefined}
+                >
+                  {item}
+                </li>
+              );
+            })}
+          </ul>
+          <div className={css.sort}>
+            <p className={css.sortText}>Sort by:</p>
+            <p className={css.sortVariant} onClick={changeSortBy}>
+              {sortBy}
+            </p>
+          </div>
+        </div>
+
         {allGames.length > 0 ? (
           <ul className={css.gamesList}>
             {allGames.map((game) => {

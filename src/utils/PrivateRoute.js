@@ -1,10 +1,9 @@
-import { useSelector } from 'react-redux';
-import { selectIsLogin } from '../redux/selectors';
-import { selectIsUserLoading } from '../redux/selectors';
+import { useSelector } from "react-redux";
+import { selectIsLogin } from "../redux/selectors";
+import { selectIsUserLoading } from "../redux/selectors";
+import { Navigate } from "react-router-dom";
 
-import { Navigate } from 'react-router-dom';
-
-export const PrivateRoute = ({ component: Component, redirectTo = '/' }) => {
+export const PrivateRoute = ({ component: Component, redirectTo = "/" }) => {
   const isLogin = useSelector(selectIsLogin);
   const isLoading = useSelector(selectIsUserLoading);
   const shouldRedirect = !isLogin && !isLoading;
