@@ -1,15 +1,13 @@
 :root {
   --default-interval: 10px;
   --default-color: yellow;
-  --headline-page-color: #8a2be2;
+  --headline-page-color: white;
   --min-font-size: 10px;
   --middle-font-size: 15px;
   --max-font-size: 20px;
   --min-font-weight: 400;
   --middle-font-weight: 500;
   --max-font-weight: 600;
-  --background-color-modal: #6495ed;
-  --border-modal: 5px solid #ffc0cb;
   --label-color: #008000;
   --error-color: #ff0000;
   --no-items-color: #008000;
@@ -59,8 +57,7 @@ a {
 }
 
 input,
-label,
-select {
+label {
   font-family: inherit;
   font-size: inherit;
   font-weight: inherit;

@@ -1,0 +1,55 @@
+.oneGame {
+  position: relative;
+  border-radius: 30px;
+  overflow: hidden;
+  flex-basis: calc((100% - 2 * 30px) / 3);
+  border: 1px solid grey;
+}
+
+.oneGame:hover,
+.oneGame:focus {
+  .oneGame_text {
+    background-color: grey;
+    cursor: pointer;
+  }
+}
+
+.oneGame_poster {
+  width: 100%;
+  height: 300px;
+  display: block;
+}
+
+.oneGame_text {
+  padding: 30px;
+  background-color: black;
+  color: white;
+  transition-property: background-color;
+  transition-duration: 1000ms;
+}
+
+.oneGame_characteristics {
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.oneGame_genre,
+.oneGame_top {
+  padding: 5px 10px;
+  border-radius: 10px;
+  font-size: 15px;
+  color: white;
+}
+
+.oneGame_genre {
+  background-color: palevioletred;
+}
+
+.oneGame_top {
+  background-color: green;
+}

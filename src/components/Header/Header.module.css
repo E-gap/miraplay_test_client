@@ -2,11 +2,7 @@
   font-family: Neue Machina Light;
   padding-top: 10px;
   padding-bottom: 10px;
-  background: radial-gradient(
-    circle,
-    rgba(23, 33, 168, 1) 64%,
-    rgba(138, 148, 198, 1) 100%
-  );
+  background-color: #1d1d1d;
 }
 
 .displayFlex {
@@ -29,28 +25,6 @@
   color: goldenrod;
 }
 
-.linkFavorite,
-.linkUser {
-  fill: var(--default-color);
-  stroke: var(--default-color);
-  margin-right: 20px;
-}
-
-.linkFavorite {
-  position: relative;
-}
-
-.userIcon {
-  cursor: pointer;
-  stroke: inherit;
-  color: var(--default-color);
-}
-
-.userFavoriteIcon {
-  cursor: pointer;
-  fill: inherit;
-}
-
 [aria-current] {
   color: #ff0000;
   fill: #ff0000;
@@ -61,11 +35,6 @@
   display: inline;
   color: var(--default-color);
   margin-right: 20px;
-}
-
-.addCarIcon {
-  margin-right: 20px;
-  color: var(--default-color);
 }
 
 .icon {
@@ -90,45 +59,4 @@
 .header_buttons {
   display: flex;
   align-items: center;
-}
-
-.numberFavorites {
-  top: 0;
-  right: 2px;
-  position: absolute;
-  font-size: 8px;
-  line-height: 1;
-  font-weight: 700;
-
-  @media screen and (min-width: 768px) and (max-width: 1199px) {
-    font-size: 10px;
-  }
-
-  @media screen and (min-width: 1200px) {
-    font-size: 15px;
-  }
-}
-
-.numberFavoritesYellow {
-  color: var(--default-color);
-}
-
-.numberFavoritesRed {
-  color: var(--error-color);
-}
-
-.logoImage {
-  width: 30px;
-  height: 20px;
-  border-radius: 5px;
-
-  @media screen and (min-width: 768px) and (max-width: 1199px) {
-    width: 35px;
-    height: 25px;
-  }
-
-  @media screen and (min-width: 1200px) {
-    width: 40px;
-    height: 30px;
-  }
 }

@@ -19,16 +19,6 @@ button:focus {
   outline: none;
 }
 
-.sortCars,
-.filterCars {
-  padding: 2px 2px 2px 2px;
-}
-
-.filterCars,
-.resetFilters {
-  margin-right: var(--default-interval);
-}
-
 .signIn {
   margin-right: var(--default-interval);
 }
@@ -59,16 +49,15 @@ button:focus {
   background-color: transparent;
   color: #800080;
 }
-.goToHome {
-  margin: 0 auto;
-  display: block;
-  margin-bottom: 10px;
-}
 
 .logOutIcon {
   margin-left: 5px;
 }
 
-.cancel {
-  margin-right: 30px;
+.show_more {
+  padding: 10px 80px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-transform: uppercase;
 }

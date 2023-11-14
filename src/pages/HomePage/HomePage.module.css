@@ -1,8 +1,55 @@
 .homePage {
   padding-top: var(--default-interval);
   padding-bottom: var(--default-interval);
+  background-color: black;
+  min-height: 100vh;
+  font-family: Neue Machina Bold;
 }
 
 .headlineHome {
   text-align: center;
+}
+
+.gamesList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+  margin-bottom: 20px;
+}
+
+.filterPanel {
+  margin-bottom: 20px;
+  padding-left: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  width: 60%;
+}
+
+.filterPanel li {
+  background-color: grey;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  font-size: 15px;
+}
+
+.filterPanel li:hover,
+.filterPanel li:focus {
+  cursor: pointer;
+}
+
+.filterPanel li:not(:last-child) {
+  margin-right: 10px;
+}
+
+li.activeG {
+  background-color: green;
+}
+
+.noItems {
+  color: var(--no-items-color);
+  text-align: center;
+  font-size: var(--max-font-size);
+  font-weight: var(--middle-font-weight);
 }

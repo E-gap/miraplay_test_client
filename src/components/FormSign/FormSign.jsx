@@ -3,7 +3,6 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { useState } from "react";
 import css from "./FormSign.module.css";
-import PropTypes from "prop-types";
 import { BiShow } from "react-icons/bi";
 import { register, login } from "../../redux/auth/authOperations";
 import { useDispatch } from "react-redux";
@@ -195,7 +194,3 @@ function FormSign({ sign }) {
 }
 
 export default FormSign;
-
-FormSign.propTypes = {
-  sign: PropTypes.string.isRequired,
-};

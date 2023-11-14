@@ -1,13 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { register, login, logout, refresh, updateUser } from "./authOperations";
+import { register, login, logout, refresh } from "./authOperations";
 
 const authSlice = createSlice({
   name: "auth",
   initialState: {
-    user: { name: null, email: null, city: null, tel: null },
-    userId: "",
+    user: { name: null, email: null },
     token: null,
-    favorites: [],
     isLogin: false,
     isLoading: false,
     error: "",
@@ -21,23 +19,10 @@ const authSlice = createSlice({
       .addCase(register.fulfilled, (state, action) => {
         state.user = action.payload.user;
         state.token = action.payload.token;
-        state.userId = action.payload.userId;
         state.isLogin = true;
         state.isLoading = false;
       })
       .addCase(register.rejected, (state, action) => {
-        state.isLoading = false;
-        state.error = action.payload;
-      })
-      .addCase(updateUser.pending, (state) => {
-        state.isLoading = true;
-        state.error = "";
-      })
-      .addCase(updateUser.fulfilled, (state, action) => {
-        state.user = action.payload;
-        state.isLoading = false;
-      })
-      .addCase(updateUser.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
       })
@@ -47,9 +32,7 @@ const authSlice = createSlice({
       })
       .addCase(login.fulfilled, (state, action) => {
         state.user = action.payload.user;
-        state.favorites = action.payload.favorites;
         state.token = action.payload.token;
-        state.userId = action.payload.user.userId;
         state.isLogin = true;
         state.isLoading = false;
       })
@@ -66,8 +49,6 @@ const authSlice = createSlice({
         state.token = null;
         state.isLogin = false;
         state.isLoading = false;
-        state.userId = "";
-        state.favorites = [];
       })
       .addCase(logout.rejected, (state, action) => {
         state.isLoading = false;
@@ -79,10 +60,8 @@ const authSlice = createSlice({
       })
       .addCase(refresh.fulfilled, (state, action) => {
         state.user = action.payload.user;
-        state.userId = action.payload.userId;
         state.isLogin = true;
         state.isLoading = false;
-        state.favorites = action.payload.favorites;
       })
       .addCase(refresh.rejected, (state, action) => {
         state.isLoading = false;
